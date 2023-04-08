@@ -11,6 +11,10 @@ import com.agnyfonseca.model.Book;
 import com.agnyfonseca.proxy.CambioProxy;
 import com.agnyfonseca.repository.BookRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@Tag(name = "Book endpoint")
 @RestController
 @RequestMapping("book-service")
 public class BookController {
@@ -24,6 +28,7 @@ public class BookController {
 	@Autowired
 	private CambioProxy proxy;
 	
+	@Operation(summary = "Find a specific book by your ID")
 	@SuppressWarnings("deprecation")
 	@GetMapping(value = "/{id}/{currency}")
 	public Book findBook(
